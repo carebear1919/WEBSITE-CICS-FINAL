@@ -1,6 +1,9 @@
 
-import React, { useState } from 'react';
-import { BookOpen, Briefcase, Download, GraduationCap, ChevronDown, ChevronUp, Code, Globe, Database, Shield, Cpu, Layers, ArrowDown, CheckCircle, Award, ScrollText } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import * as ReactRouterDOM from 'react-router-dom';
+import { BookOpen, Briefcase, Download, GraduationCap, ChevronDown, ChevronUp, Cpu, Globe, Layers, ArrowDown, CheckCircle, Award, ScrollText } from 'lucide-react';
+
+const { useLocation } = ReactRouterDOM;
 
 // --- Expandable Text Component ---
 interface ExpandableTextProps {
@@ -142,6 +145,19 @@ const AdmissionGuidelines = () => {
 
 // --- Main Programs Page ---
 const Programs: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 300); // delay to ensure rendering
+    }
+  }, [location]);
 
   const handleDownload = (program: string) => {
     const fileName = `${program.replace(/\s+/g, '_')}_Curriculum_2025.pdf`;
@@ -154,7 +170,7 @@ const Programs: React.FC = () => {
       {/* Modern Hero Banner */}
       <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden shadow-2xl group">
         <img 
-          src="Images/ProgramBanner.jpg" 
+          src="https://picsum.photos/1920/1080?code,technology" 
           alt="Academic Programs Banner" 
           className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-[20s] ease-linear"
         />
@@ -194,7 +210,7 @@ const Programs: React.FC = () => {
           <div className="grid grid-cols-1 gap-16">
             
             {/* ==================== BSIT Card ==================== */}
-            <div className="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 animate-slide-up">
+            <div id="bsit" className="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 animate-slide-up scroll-mt-32">
               <div className="bg-gradient-to-r from-cics-dark to-cics-main p-8 text-white relative">
                  <Globe className="absolute -bottom-6 -right-6 text-white/10 rotate-12" size={160} />
                  <div className="relative z-10">
@@ -275,7 +291,7 @@ The department continuously upholds the vision and goal of DLSU-Dasmariñas and 
             </div>
 
             {/* ==================== BSCS Card ==================== */}
-            <div className="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 animate-slide-up">
+            <div id="bscs" className="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 animate-slide-up scroll-mt-32">
               <div className="bg-gradient-to-r from-blue-900 to-blue-700 p-8 text-white relative">
                  <Cpu className="absolute -bottom-6 -right-6 text-white/10 rotate-12" size={160} />
                  <div className="relative z-10">
