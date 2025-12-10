@@ -1,13 +1,14 @@
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Facebook, Youtube, Linkedin, Send, CheckCircle, X, Globe, ArrowRight } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { Mail, Phone, MapPin, Clock, Facebook, Youtube, Linkedin, Send, CheckCircle, Globe, ArrowRight } from 'lucide-react';
 
 // --- Modal Component ---
 const SuccessModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+  return createPortal(
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
       <div 
         className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity animate-fade-in"
         onClick={onClose}
@@ -27,7 +28,8 @@ const SuccessModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOp
             Close
         </button>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

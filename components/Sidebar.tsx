@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import * as ReactRouterDOM from 'react-router-dom';
 import { X, ArrowRight, ExternalLink, ChevronRight } from 'lucide-react';
 
@@ -25,8 +26,8 @@ const SidebarModal: React.FC<SidebarModalProps> = ({ isOpen, onClose, title, des
     onClose();
   };
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+  return createPortal(
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-fade-in" onClick={onClose}></div>
       <div className="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-sm relative z-10 animate-slide-up border border-gray-100">
         <button 
@@ -52,7 +53,8 @@ const SidebarModal: React.FC<SidebarModalProps> = ({ isOpen, onClose, title, des
           View Program Details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform"/>
         </button>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

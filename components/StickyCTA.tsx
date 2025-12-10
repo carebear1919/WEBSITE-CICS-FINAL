@@ -1,15 +1,16 @@
 
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import * as ReactRouterDOM from 'react-router-dom';
-import { ArrowRight, MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram, GraduationCap, Calendar, MessageCircle, Monitor, Code, X, CheckCircle, User, BookOpen, Building, Send } from 'lucide-react';
+import { ArrowRight, MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram, GraduationCap, Calendar, MessageCircle, Monitor, Code, X, CheckCircle, User, Building } from 'lucide-react';
 
 const { useNavigate } = ReactRouterDOM;
 
 // --- Reusable Modal Component ---
 const Modal: React.FC<{ isOpen: boolean; onClose: () => void; title: string; children: React.ReactNode }> = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) return null;
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+  return createPortal(
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity animate-fade-in" onClick={onClose}></div>
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg relative z-10 overflow-hidden flex flex-col max-h-[90vh] animate-slide-up">
         <div className="flex justify-between items-center p-5 border-b border-gray-100 bg-gray-50">
@@ -24,7 +25,8 @@ const Modal: React.FC<{ isOpen: boolean; onClose: () => void; title: string; chi
           {children}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

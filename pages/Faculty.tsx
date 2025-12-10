@@ -1,6 +1,7 @@
 
 import React, { useState, useMemo } from 'react';
-import { Search, BookOpen, Microscope, X, User, Briefcase, Award, ArrowRight, Monitor, Code, Filter, Sparkles, GraduationCap } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { Search, BookOpen, Microscope, X, User, Briefcase, Award, ArrowRight, Sparkles, GraduationCap } from 'lucide-react';
 
 // --- Interfaces ---
 interface FacultyProfile {
@@ -24,8 +25,8 @@ interface AdminProfile {
 const FacultyModal: React.FC<{ profile: FacultyProfile | null; onClose: () => void }> = ({ profile, onClose }) => {
   if (!profile) return null;
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+  return createPortal(
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity animate-fade-in" 
@@ -95,7 +96,8 @@ const FacultyModal: React.FC<{ profile: FacultyProfile | null; onClose: () => vo
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

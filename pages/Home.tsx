@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
-import { ArrowRight, Calendar, Award, ChevronLeft, ChevronRight, Clock, MapPin } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Clock, MapPin } from 'lucide-react';
 
 const Home: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'About' | 'Announcements' | 'Events' | 'Life'>('About');
@@ -220,7 +221,7 @@ const Home: React.FC = () => {
                   {/* Main Featured Achievement */}
                   <div className="w-full md:w-1/3 shrink-0 transform hover:scale-[1.02] transition-transform duration-300">
                     <img 
-                      src="Images/Announcement1.jpg" 
+                      src="https://picsum.photos/400/500?random=3" 
                       alt="Champion" 
                       className="w-full h-[350px] object-cover rounded-xl shadow-2xl border-2 border-white"
                     />
@@ -259,11 +260,11 @@ const Home: React.FC = () => {
                      {/* Thumbnails Row */}
                      <div className="flex gap-4 mt-4 overflow-x-auto pb-2 scrollbar-hide">
                         <div className="bg-white p-2 shadow-md rounded-lg w-32 shrink-0 hover:shadow-xl transition-shadow cursor-pointer">
-                           <img src="Images/ICTC.png" className="w-full h-16 object-cover mb-1 rounded" alt="thumb" />
+                           <img src="https://picsum.photos/100/80" className="w-full h-16 object-cover mb-1 rounded" alt="thumb" />
                            <p className="text-[10px] text-center font-bold text-gray-700">ICTC BUILDING</p>
                         </div>
                         <div className="bg-white p-2 shadow-md rounded-lg w-32 shrink-0 hover:shadow-xl transition-shadow cursor-pointer">
-                           <img src="Images/CICS.png" className="w-full h-16 object-cover mb-1 rounded" alt="thumb" />
+                           <img src="https://picsum.photos/100/80?random=4" className="w-full h-16 object-cover mb-1 rounded" alt="thumb" />
                            <p className="text-[10px] text-center font-bold text-gray-700">CICS</p>
                         </div>
                      </div>

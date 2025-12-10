@@ -1,6 +1,7 @@
 
-import React, { useState, useEffect } from 'react';
-import { FileText, Users, Monitor, BookOpen, ChevronDown, ChevronUp, Calendar, GraduationCap, Briefcase, Download, AlertCircle, CheckCircle, X, Clock, MapPin, Check, Server, Wifi } from 'lucide-react';
+import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
+import { FileText, Users, Monitor, BookOpen, ChevronDown, ChevronUp, Calendar, GraduationCap, Briefcase, Download, AlertCircle, CheckCircle, X, Clock, Check, Server, Wifi } from 'lucide-react';
 
 // --- Reusable Accordion Component ---
 const AccordionItem: React.FC<{ title: string; children: React.ReactNode; isOpen: boolean; onClick: () => void }> = ({ title, children, isOpen, onClick }) => {
@@ -32,8 +33,8 @@ const AccordionItem: React.FC<{ title: string; children: React.ReactNode; isOpen
 const Modal: React.FC<{ isOpen: boolean; onClose: () => void; title: string; children: React.ReactNode }> = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) return null;
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+  return createPortal(
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
       <div 
         className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity animate-fade-in"
         onClick={onClose}
@@ -49,7 +50,8 @@ const Modal: React.FC<{ isOpen: boolean; onClose: () => void; title: string; chi
           {children}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
@@ -609,4 +611,3 @@ const Services: React.FC = () => {
 };
 
 export default Services;
-    
