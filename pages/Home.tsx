@@ -3,6 +3,11 @@ import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import { ChevronLeft, ChevronRight, Clock, MapPin } from 'lucide-react';
 
+// Local images (bundled for production)
+const Banner1 = new URL('../Images/Banner1.jpg', import.meta.url).href;
+const Banner2 = new URL('../Images/Banner2.jpg', import.meta.url).href;
+const Banner3 = new URL('../Images/Banner3.jpg', import.meta.url).href;
+
 const Home: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'About' | 'Announcements' | 'Events' | 'Life'>('About');
 
@@ -18,7 +23,7 @@ const Home: React.FC = () => {
       {/* Hero Banner Section */}
       <div className="relative w-full h-[300px] md:h-[400px] bg-gray-900 overflow-hidden shadow-2xl mb-8 animate-fade-in">
         <img 
-          src="Images/Banner1.jpg" 
+          src={Banner1}
           alt="Students in Lab" 
           className="w-full h-full object-cover opacity-50"
         />
@@ -37,8 +42,8 @@ const Home: React.FC = () => {
         
         {/* Decorative Images overlay on the right */}
         <div className="hidden lg:flex absolute right-0 top-0 h-full w-1/3 gap-1 animate-fade-in delay-300">
-             <img src="Images/Banner2.jpg" className="h-full w-1/2 object-cover border-l border-white/20 shadow-[-10px_0_20px_rgba(0,0,0,0.5)]" alt="Student Life" />
-             <img src="Images/Banner3.jpg" className="h-full w-1/2 object-cover border-l border-white/20" alt="Student Group" />
+             <img src={Banner2} className="h-full w-1/2 object-cover border-l border-white/20 shadow-[-10px_0_20px_rgba(0,0,0,0.5)]" alt="Student Life" />
+             <img src={Banner3} className="h-full w-1/2 object-cover border-l border-white/20" alt="Student Group" />
         </div>
       </div>
 
