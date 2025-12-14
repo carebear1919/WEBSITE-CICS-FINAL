@@ -1,5 +1,9 @@
+
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import * as ReactRouterDOM from 'react-router-dom';
+import Logo from '../Images/Logo.jpg';
+
+const { Link, useLocation } = ReactRouterDOM;
 
 const Header: React.FC = () => {
   const location = useLocation();
@@ -20,9 +24,9 @@ const Header: React.FC = () => {
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden border-2 border-green-700/30">
              <img 
-               src="Images\Logo.jpg" 
+               src={Logo}
                alt="CICS Logo" 
-               className="w-full h-full object-contain p-1" 
+               className="w-14 h-14 object-contain" 
              />
           </div>
           <div className="font-serif flex flex-col justify-center drop-shadow-md">

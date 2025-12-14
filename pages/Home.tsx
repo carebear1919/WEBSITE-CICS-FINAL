@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import { ChevronLeft, ChevronRight, Clock, MapPin } from 'lucide-react';
-
-// Local images (bundled for production)
-const Banner1 = new URL('../Images/Banner1.jpg', import.meta.url).href;
-const Banner2 = new URL('../Images/Banner2.jpg', import.meta.url).href;
-const Banner3 = new URL('../Images/Banner3.jpg', import.meta.url).href;
+import Banner1 from '../Images/Banner1.jpg';
+import Banner2 from '../Images/Banner2.jpg';
+import Banner3 from '../Images/Banner3.jpg';
+import ICTC from '../Images/ICTC.png';
+import CICS from '../Images/CICS.png';
 
 const Home: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'About' | 'Announcements' | 'Events' | 'Life'>('About');
@@ -23,7 +23,7 @@ const Home: React.FC = () => {
       {/* Hero Banner Section */}
       <div className="relative w-full h-[300px] md:h-[400px] bg-gray-900 overflow-hidden shadow-2xl mb-8 animate-fade-in">
         <img 
-          src={Banner1}
+          src={Banner1} 
           alt="Students in Lab" 
           className="w-full h-full object-cover opacity-50"
         />
@@ -265,11 +265,11 @@ const Home: React.FC = () => {
                      {/* Thumbnails Row */}
                      <div className="flex gap-4 mt-4 overflow-x-auto pb-2 scrollbar-hide">
                         <div className="bg-white p-2 shadow-md rounded-lg w-32 shrink-0 hover:shadow-xl transition-shadow cursor-pointer">
-                           <img src="https://picsum.photos/100/80" className="w-full h-16 object-cover mb-1 rounded" alt="thumb" />
+                           <img src={ICTC} className="w-full h-16 object-cover mb-1 rounded" alt="thumb" />
                            <p className="text-[10px] text-center font-bold text-gray-700">ICTC BUILDING</p>
                         </div>
                         <div className="bg-white p-2 shadow-md rounded-lg w-32 shrink-0 hover:shadow-xl transition-shadow cursor-pointer">
-                           <img src="https://picsum.photos/100/80?random=4" className="w-full h-16 object-cover mb-1 rounded" alt="thumb" />
+                           <img src={CICS} className="w-full h-16 object-cover mb-1 rounded" alt="thumb" />
                            <p className="text-[10px] text-center font-bold text-gray-700">CICS</p>
                         </div>
                      </div>

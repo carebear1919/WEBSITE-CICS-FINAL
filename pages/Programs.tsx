@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import * as ReactRouterDOM from 'react-router-dom';
 import { BookOpen, Briefcase, Download, GraduationCap, ChevronDown, ChevronUp, Cpu, Globe, Layers, ArrowDown, CheckCircle, Award, ScrollText } from 'lucide-react';
+import ProgramBanner from '../Images/ProgramBanner.jpg';
 
 const { useLocation } = ReactRouterDOM;
 
@@ -170,7 +171,7 @@ const Programs: React.FC = () => {
       {/* Modern Hero Banner */}
       <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden shadow-2xl group">
         <img 
-          src="https://picsum.photos/1920/1080?code,technology" 
+          src={ProgramBanner} 
           alt="Academic Programs Banner" 
           className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-[20s] ease-linear"
         />

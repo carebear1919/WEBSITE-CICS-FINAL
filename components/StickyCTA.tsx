@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import * as ReactRouterDOM from 'react-router-dom';
 import { ArrowRight, MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram, GraduationCap, Calendar, MessageCircle, Monitor, Code, X, CheckCircle, User, Building } from 'lucide-react';
+import Logo from '../Images/Logo.jpg';
 
 const { useNavigate } = ReactRouterDOM;
 
@@ -32,7 +33,6 @@ const Modal: React.FC<{ isOpen: boolean; onClose: () => void; title: string; chi
 
 const StickyCTA: React.FC = () => {
   const navigate = useNavigate();
-  const LogoImg = new URL('../Images/Logo.jpg', import.meta.url).href;
   const [activeModal, setActiveModal] = useState<'apply' | 'visit' | 'counselor' | 'success' | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -223,7 +223,7 @@ const StickyCTA: React.FC = () => {
             <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1 shadow-lg shrink-0">
-                    <img src={LogoImg} alt="Logo" className="w-full h-full object-contain"/>
+                    <img src={Logo} alt="Logo" className="w-full h-full object-contain"/>
                   </div>
                   <div className="leading-tight">
                       <h3 className="font-bold text-lg">CICS</h3>

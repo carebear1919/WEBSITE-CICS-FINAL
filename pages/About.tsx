@@ -1,8 +1,7 @@
+
 import React, { useState } from 'react';
 import { Quote, ChevronDown, ChevronUp, Heart, Cross, Users } from 'lucide-react';
-
-// Local image
-const DeanImg = new URL('../Images/Dean.png', import.meta.url).href;
+import Dean from '../Images/Dean.png';
 
 // Helper Component for Expandable Text
 interface ExpandableTextProps {
@@ -67,9 +66,9 @@ const About: React.FC = () => {
         {/* Right: Dean's Message */}
         <div className="lg:w-1/2 relative mt-12 lg:mt-0">
            <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-2xl border border-gray-100 h-full relative z-10">
-              <div className="absolute -top-10 left-8 w-24 h-24 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-200 z-20">
-              <img src={DeanImg} alt="Dean" className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" />
-            </div>
+               <div className="absolute -top-10 left-8 w-24 h-24 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-200 z-20">
+                  <img src={Dean} alt="Dean" className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" />
+               </div>
                <div className="mt-12">
                  <Quote className="text-cics-main/20 absolute top-8 right-8" size={80} />
                  <h3 className="text-2xl font-bold text-cics-dark mb-4 pl-2">Message from the Dean</h3>
