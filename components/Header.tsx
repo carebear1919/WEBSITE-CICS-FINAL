@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import * as ReactRouterDOM from 'react-router-dom';
 import Logo from '../Images/Logo.jpg';
 
@@ -7,6 +7,7 @@ const { Link, useLocation } = ReactRouterDOM;
 
 const Header: React.FC = () => {
   const location = useLocation();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItems = [
     { label: 'Home', path: '/' },
@@ -35,7 +36,7 @@ const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Navigation */}
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex gap-2">
           {navItems.map((item) => (
             <Link
@@ -51,6 +52,34 @@ const Header: React.FC = () => {
             </Link>
           ))}
         </nav>
+
+        {/* Mobile Hamburger */}
+        <div className="lg:hidden relative">
+          <button
+            aria-label="Toggle navigation"
+            onClick={() => setMobileOpen((s) => !s)}
+            className="p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
+          >
+            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} />
+            </svg>
+          </button>
+
+          {mobileOpen && (
+            <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl text-cics-dark py-3 z-50">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setMobileOpen(false)}
+                  className={`block px-4 py-2 text-sm font-medium hover:bg-gray-100 ${location.pathname === item.path ? 'font-bold' : ''}`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );

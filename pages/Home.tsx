@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import { ChevronLeft, ChevronRight, Clock, MapPin } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Banner1 from '../Images/Banner1.jpg';
 import Banner2 from '../Images/Banner2.jpg';
 import Banner3 from '../Images/Banner3.jpg';
@@ -10,6 +11,7 @@ import CICS from '../Images/CICS.png';
 
 const Home: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'About' | 'Announcements' | 'Events' | 'Life'>('About');
+  const navigate = useNavigate();
 
   const tabs = [
     { id: 'About', label: 'About Us' },
@@ -33,7 +35,7 @@ const Home: React.FC = () => {
               “Empowering Future Innovators in Technology”
             </h2>
             <div className="flex gap-4">
-              <button className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-bold py-2 px-6 rounded-full border-2 border-white/30 shadow-lg hover:shadow-green-500/50 transition-all transform hover:scale-105 flex items-center">
+              <button onClick={() => { navigate('/programs'); window.scrollTo(0,0); }} className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-bold py-2 px-6 rounded-full border-2 border-white/30 shadow-lg hover:shadow-green-500/50 transition-all transform hover:scale-105 flex items-center">
                 Apply Now <span className="ml-2 text-xl">&gt;</span>
               </button>
             </div>
