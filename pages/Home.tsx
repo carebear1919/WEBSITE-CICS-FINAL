@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Banner1 from '../Images/Banner1.jpg';
 import Banner2 from '../Images/Banner2.jpg';
 import Banner3 from '../Images/Banner3.jpg';
+import Announcement1 from '../Images/Announcement1.jpg';
 import ICTC from '../Images/ICTC.png';
 import CICS from '../Images/CICS.png';
 
@@ -228,7 +229,7 @@ const Home: React.FC = () => {
                   {/* Main Featured Achievement */}
                   <div className="w-full md:w-1/3 shrink-0 transform hover:scale-[1.02] transition-transform duration-300">
                     <img 
-                      src="https://picsum.photos/400/500?random=3" 
+                      src={Announcement1} 
                       alt="Champion" 
                       className="w-full h-[350px] object-cover rounded-xl shadow-2xl border-2 border-white"
                     />
